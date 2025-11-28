@@ -52,7 +52,7 @@ gcloud config set project YOUR_PROJECT_ID
 # Deploy (first deployment takes ~10-15 mins for binary compilation)
 gcloud run deploy a3dshell \
   --source . \
-  --region europe-west6 \
+  --region europe-west1 \
   --allow-unauthenticated \
   --min-instances 0 \
   --max-instances 10 \
@@ -65,7 +65,7 @@ gcloud run deploy a3dshell \
 **Configuration:**
 | Setting | Value | Notes |
 |---------|-------|-------|
-| Region | europe-west6 | Zurich (close to Swiss data sources) |
+| Region | europe-west1 | Belgium (supports custom domains) |
 | Min instances | 0 | Scale to zero when idle |
 | Max instances | 10 | Handle burst usage |
 | Memory | 4 GB | Required for simulations |

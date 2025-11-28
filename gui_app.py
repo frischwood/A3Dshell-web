@@ -1407,6 +1407,71 @@ USE_SHP_ROI = {'true' if use_shapefile else 'false'}
 
         st.divider()
 
+        # Download configuration section
+        st.subheader("Download Configuration")
+        st.info("Download the configuration file to run simulations on your local machine with A3Dshell.")
+
+        # Generate config content for download
+        download_config = f"""# A3Dshell Configuration
+# Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+
+[GENERAL]
+SIMULATION_NAME = {simu_name}
+START_DATE = {start_dt.strftime('%Y-%m-%dT%H:%M:%S')}
+END_DATE = {end_dt.strftime('%Y-%m-%dT%H:%M:%S')}
+
+[INPUT]
+EAST_epsg2056 = {poi_x}
+NORTH_epsg2056 = {poi_y}
+altLV95 = {poi_z}
+USE_SHP_ROI = {'true' if use_shapefile else 'false'}
+"""
+
+        if use_shapefile:
+            download_config += f"ROI_SHAPEFILE = {roi_shapefile}\n"
+        else:
+            download_config += f"ROI = {roi_size}\n"
+
+        download_config += f"BUFFERSIZE = {buffer_size}\n"
+        download_config += f"\n[OUTPUT]\n"
+        download_config += f"OUT_COORDSYS = {coord_sys}\n"
+        download_config += f"GSD = {gsd}\n"
+        download_config += f"GSD_ref = {gsd_ref}\n"
+        download_config += f"DEM_ADDFMTLIST =\n"
+        download_config += f"MESH_FMT = vtu\n"
+        download_config += f"MASK_DEM_TO_POLYGON = {'true' if st.session_state.config.get('mask_dem_to_polygon', True) else 'false'}\n"
+        download_config += f"MASK_LUS_TO_POLYGON = {'true' if st.session_state.config.get('mask_lus_to_polygon', True) else 'false'}\n"
+        download_config += f"\n[MAPS]\n"
+        download_config += f"PLOT_HORIZON = false\n"
+        download_config += f"\n[A3D]\n"
+        download_config += f"USE_GROUNDEYE = false\n"
+        download_config += f"LUS_SOURCE = {lus_source}\n"
+
+        if lus_source == "constant":
+            download_config += f"LUS_PREVAH_CST = {lus_constant}\n"
+
+        download_config += "DO_PVP_3D = false\n"
+        download_config += "PVP_3D_FMT = vtu\n"
+        download_config += "SP_BIN_PATH = snowpack\n"
+
+        # Add POIs if defined
+        if st.session_state.get('poi_list_ch'):
+            download_config += "\n[POIS]\n"
+            for poi in st.session_state.poi_list_ch:
+                download_config += f"{poi['name']} = {poi['x']},{poi['y']},{poi['z']}\n"
+
+        download_filename = f"{simu_name if simu_name else 'a3dshell_config'}.ini"
+
+        st.download_button(
+            label="📥 Download Configuration (.ini)",
+            data=download_config,
+            file_name=download_filename,
+            mime="text/plain",
+            help="Download this configuration file to use with A3Dshell on your local machine"
+        )
+
+        st.divider()
+
         # Run simulation section
         st.header("Run Setup")
 
