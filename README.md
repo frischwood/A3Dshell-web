@@ -2,7 +2,7 @@
 
 A Streamlit-based web service for A3Dshell Alpine3D simulations. This version is designed for server deployment with pre-installed binaries.
 
-**Live:** https://a3dshell-721977282288.europe-west6.run.app
+**Live:** https://a3dshell-721977282288.europe-west1.run.app
 
 ## Features
 
