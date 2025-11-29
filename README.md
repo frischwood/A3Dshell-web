@@ -6,11 +6,7 @@ A tool for preparing [Alpine3D](https://alpine3d.slf.ch) simulation environments
 
 ## What is Alpine3D?
 
-[Alpine3D](https://alpine3d.slf.ch) is a spatially distributed model developed by [SLF](https://www.slf.ch) that simulates snow-dominated surface processes in mountainous terrain. It combines the SNOWPACK model with modules for radiation transfer, snow transport, and runoff modeling. Alpine3D is used for:
-
-- Water resource assessment in mountain watersheds
-- Climate change impact studies
-- Avalanche forecasting and ski slope management
+[Alpine3D](https://alpine3d.slf.ch) is a spatially distributed model developed by [SLF](https://www.slf.ch) that simulates snow-dominated surface processes in mountainous terrain. It combines the [SNOWPACK](https://snowpack.slf.ch) model with modules for radiation transfer, snow transport, and runoff modeling.
 
 ## What does A3Dshell do?
 
