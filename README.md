@@ -1,6 +1,8 @@
-# A3Dshell Web
+# A3Dshell
 
-A web-based tool for preparing [Alpine3D](https://alpine3d.slf.ch) simulation environments.
+A tool for preparing [Alpine3D](https://alpine3d.slf.ch) simulation environments.
+--
+>Web App: [app.a3dshell.ch](https://alpine3d.slf.ch)
 
 ## What is Alpine3D?
 
@@ -59,7 +61,9 @@ your_simulation/
 ├── io.ini                # Alpine3D configuration
 └── ...
 ```
-
+## Web App
+URL: [app.a3dshell.ch](https://alpine3d.slf.ch)
+> **Limitations:** Snowpack preprocessing and Alpine3D execution are disabled in the hosted version. The web app generates simulation input files only. Run locally with Docker for full functionality.
 ## Run Locally with Docker
 
 ```bash
