@@ -2063,7 +2063,7 @@ st.markdown("""
 <div style='text-align: center; color: #666; font-size: 0.9em;'>
     <p style='margin-bottom: 5px;'><strong>A3Dshell</strong> </p>
     <p style='margin: 5px 0;'>
-        <a href='https://github.com/frischwood/A3Dshell-web' target='_blank' style='color: #0366d6; text-decoration: none;'>
+        <a href='https://github.com/frischwood/A3Dshell' target='_blank' style='color: #0366d6; text-decoration: none;'>
             GitHub
         </a>
     </p>

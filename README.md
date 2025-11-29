@@ -64,8 +64,8 @@ your_simulation/
 
 ```bash
 # Clone and build
-git clone https://github.com/frischwood/A3Dshell-web.git
-cd A3Dshell-web
+git clone https://github.com/frischwood/A3Dshell.git
+cd A3Dshell
 docker-compose up --build
 
 # Open browser to http://localhost:8501
